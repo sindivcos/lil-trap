@@ -1,15 +1,27 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  // Questions
   const questions = [
-    "All set for our first trip? ",
+    "All set for our first trip?",
     "Are you sureeeeeeee (You better be)? 🥺",
-    "Are you excitedddd?(hehehehe, evil laugh)? 🤍",
+    "Are you excitedddd? (hehehehe, evil laugh)? 🤍",
     "Do you realize you’re stuck with me now?",
     "Are you emotionally prepared for how dramatic I am? 💖",
     "Do you promise to never get tired of me?",
     "So like… you’re not allowed to leave now, right?"
   ];
+
+  // YES responses must match question order
+  const yesResponses = [
+    "YAYYYYYY 😍",
+    "Good. I was watching 😌",
+    "AS YOU SHOULD 😈🤍",
+    "Correctttttt",
+    "You’ll survive. Probably 😏",
+    "That’s all I wanted to hear ",
+    "Too late anyway, hahhahahha "
+  ];
+
+  const noResponse = "I will kill you, huhhh";
 
   let currentQuestion = 0;
 
@@ -22,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const yesButton = document.getElementById("yes-button");
   const noButton = document.getElementById("no-button");
 
-  // START BUTTON
+  // Start
   startButton.addEventListener("click", () => {
     startText.style.display = "none";
     startButton.style.display = "none";
@@ -30,15 +42,14 @@ document.addEventListener("DOMContentLoaded", () => {
     showQuestion();
   });
 
-  // SHOW QUESTION
   function showQuestion() {
     questionElement.innerText = questions[currentQuestion];
     responseElement.innerText = "";
   }
 
-  // YES BUTTON
+  // YES
   yesButton.addEventListener("click", () => {
-    responseElement.innerText = getYesResponse();
+    responseElement.innerText = yesResponses[currentQuestion];
 
     setTimeout(() => {
       currentQuestion++;
@@ -47,32 +58,19 @@ document.addEventListener("DOMContentLoaded", () => {
       } else {
         endGame();
       }
-    }, 800);
+    }, 900);
   });
 
-  // NO BUTTON
+  // NO
   noButton.addEventListener("click", () => {
-    responseElement.innerText = "Incorrect choice 💔 Try again.";
+    responseElement.innerText = noResponse;
   });
 
-  // Random YES responses
-  function getYesResponse() {
-    const responses = [
-      "I knew it 😍",
-      "As you should 💖",
-      "Correct choice 💘",
-      "Smart decision 😏",
-      "Excellent taste 🥰"
-    ];
-    return responses[Math.floor(Math.random() * responses.length)];
-  }
-
-  // END SCREEN
   function endGame() {
-    questionElement.innerText = "Congrats 🎉 You’re mine now 💖";
-    responseElement.innerText = "I love youuuuuuu 🥹";
+    questionElement.innerText = "Congrats 🎉 You’re officially stuck with me 💖";
+    responseElement.innerText = "I love youuuuu 🥹";
     yesButton.style.display = "none";
     noButton.style.display = "none";
   }
 
-}); // end DOMContentLoaded
+});
