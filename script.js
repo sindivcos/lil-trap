@@ -2,9 +2,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Questions
   const questions = [
-    "Will you go on a trip with me? ",
+    "All set for our first trip? ",
     "Are you sureeeeeeee (You better be)? 🥺",
-    "Wanna be mine forever (hehehehe, evil laugh)? 🤍",
+    "Are you excitedddd?(hehehehe, evil laugh)? 🤍",
     "Do you realize you’re stuck with me now?",
     "Are you emotionally prepared for how dramatic I am? 💖",
     "Do you promise to never get tired of me?",
