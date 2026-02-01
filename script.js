@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       endGame();
     }
-  }, 10000); 
+  }, 2000); 
 });
 
 //NO
@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
       responseElement.innerText = "";
       yesButton.disabled = false;
       noButton.disabled = false;
-    }, 7000); // 7000ms = 7 seconds
+    }, 1500); 
   });
 
   function endGame() {
