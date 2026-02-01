@@ -10,15 +10,16 @@ const questions = [
 
 let currentQuestion = 0;
 
-// Grab elements
+// Elements
 const startButton = document.getElementById("start-button");
 const startText = document.getElementById("start-text");
 const quizDiv = document.getElementById("quiz");
 const questionElement = document.getElementById("question");
 const responseElement = document.getElementById("response");
-const buttons = document.querySelectorAll("#quiz button");
+const yesButton = document.getElementById("yes-button");
+const noButton = document.getElementById("no-button");
 
-// Start the quiz
+// START BUTTON
 startButton.addEventListener("click", () => {
   startText.style.display = "none";
   startButton.style.display = "none";
@@ -26,17 +27,16 @@ startButton.addEventListener("click", () => {
   showQuestion();
 });
 
-// Show the current question
+// SHOW QUESTION
 function showQuestion() {
   questionElement.innerText = questions[currentQuestion];
   responseElement.innerText = "";
 }
 
-// YES button
-function answerYes() {
+// YES BUTTON
+yesButton.addEventListener("click", () => {
   responseElement.innerText = getYesResponse();
-  
-  // Move to next question after a short delay
+
   setTimeout(() => {
     currentQuestion++;
     if (currentQuestion < questions.length) {
@@ -44,13 +44,13 @@ function answerYes() {
     } else {
       endGame();
     }
-  }, 800); // 0.8 seconds pause so he sees the response
-}
+  }, 800); // pause so response is visible
+});
 
-// NO button
-function answerNo() {
+// NO BUTTON
+noButton.addEventListener("click", () => {
   responseElement.innerText = "Incorrect choice 💔 Try again.";
-}
+});
 
 // Random YES responses
 function getYesResponse() {
@@ -64,9 +64,10 @@ function getYesResponse() {
   return responses[Math.floor(Math.random() * responses.length)];
 }
 
-// End screen
+// END SCREEN
 function endGame() {
   questionElement.innerText = "Congrats 🎉 You’re mine now 💖";
   responseElement.innerText = "I love youuuuuuu 🥹";
-  buttons.forEach(button => button.style.display = "none");
+  yesButton.style.display = "none";
+  noButton.style.display = "none";
 }
