@@ -52,18 +52,28 @@ document.addEventListener("DOMContentLoaded", () => {
     responseElement.innerText = yesResponses[currentQuestion];
 
     setTimeout(() => {
-      currentQuestion++;
-      if (currentQuestion < questions.length) {
-        showQuestion();
-      } else {
-        endGame();
-      }
-    }, 900);
-  });
+    currentQuestion++;
+    if (currentQuestion < questions.length) {
+      showQuestion();
+    } else {
+      endGame();
+    }
+  }, 10000); 
+});
 
-  // NO
-  noButton.addEventListener("click", () => {
+//NO
+
+ noButton.addEventListener("click", () => {
     responseElement.innerText = noResponse;
+    yesButton.disabled = true;
+    noButton.disabled = true;
+
+    // 7-second pause before allowing retry
+    setTimeout(() => {
+      responseElement.innerText = "";
+      yesButton.disabled = false;
+      noButton.disabled = false;
+    }, 7000); // 7000ms = 7 seconds
   });
 
   function endGame() {
