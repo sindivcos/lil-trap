@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   function endGame() {
-    questionElement.innerText = "Congrats 🎉 You’re officially stuck with me 💖";
+    questionElement.innerText = "You’re officially stuck with meeeeeeee";
     responseElement.innerText = "I love youuuuu 🥹";
     yesButton.style.display = "none";
     noButton.style.display = "none";
