@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       endGame();
     }
-  }, 2000); 
+  }, 1000); 
 });
 
 //NO
