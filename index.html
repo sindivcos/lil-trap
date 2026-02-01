@@ -2,21 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>For My Favorite Person 💕</title>
+  <title>For You 😌💖</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <div class="container">
-    <h1>Heyyyy Dumbass </h1>
-    <p>I made this for you</p>
+    <!-- Start screen -->
+    <h1 id="start-text">Hellooooo 😌</h1>
+    <button id="start-button">Start 💕</button>
 
-     <h2 id="question"></h2>
-
-    <button onclick="sayYes()">Yesssssss 💕</button>
-    <button onclick="sayNo()">Noooooo 💀💔</button>
-
-    <p id="response"></p>
+    <!-- Question area (hidden at first) -->
+    <div id="quiz" style="display:none;">
+      <h2 id="question"></h2>
+      <button onclick="answerYes()">YES 💕</button>
+      <button onclick="answerNo()">NO 💔</button>
+      <p id="response"></p>
+    </div>
   </div>
 
   <script src="script.js"></script>

@@ -2,20 +2,34 @@ const questions = [
   "Will you go on a date with me? 💕",
   "Are you sureeeeeeee (You better be)? 🥺",
   "Wanna be mine forever (hehehehe, evil laugh)? 🤍",
-  "Do you realize you’re stuck with me now? ",
+  "Do you realize you’re stuck with me now?",
   "Are you emotionally prepared for how dramatic I am? 💖",
-  "Do you promise to never get tired of me? ",
+  "Do you promise to never get tired of me?",
   "So like… you’re not allowed to leave now, right?"
 ];
 
 let currentQuestion = 0;
 
+// Grab elements
+const startButton = document.getElementById("start-button");
+const startText = document.getElementById("start-text");
+const quizDiv = document.getElementById("quiz");
 const questionElement = document.getElementById("question");
 const responseElement = document.getElementById("response");
-const buttons = document.querySelectorAll("button");
+const buttons = document.querySelectorAll("#quiz button");
 
-// Show the first question when page loads
-questionElement.innerText = questions[currentQuestion];
+// Start the quiz
+startButton.addEventListener("click", () => {
+  startText.style.display = "none";
+  startButton.style.display = "none";
+  quizDiv.style.display = "block";
+  showQuestion();
+});
+
+function showQuestion() {
+  questionElement.innerText = questions[currentQuestion];
+  responseElement.innerText = "";
+}
 
 function answerYes() {
   responseElement.innerText = getYesResponse();
@@ -28,11 +42,10 @@ function answerNo() {
 
 function nextQuestion() {
   setTimeout(() => {
-    responseElement.innerText = "";
     currentQuestion++;
 
     if (currentQuestion < questions.length) {
-      questionElement.innerText = questions[currentQuestion];
+      showQuestion();
     } else {
       endGame();
     }
@@ -41,7 +54,7 @@ function nextQuestion() {
 
 function getYesResponse() {
   const responses = [
-    "I knew it 😍",
+    "I knew it ",
     "As you should 💖",
     "Correct choice 💘",
     "Smart decision 😏",
